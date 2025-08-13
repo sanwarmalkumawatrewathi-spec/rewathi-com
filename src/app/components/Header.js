@@ -7,7 +7,7 @@ export default function Header() {
       <div className="header-container">
         {/* Logo */}
         <div className="logo">
-<img src="/assets/images/logo.webp" alt="Rewathi Innovations" />
+<img src="/assets/images/logo.png" alt="Rewathi Innovations" />
         </div>
 
         {/* Navigation */}
