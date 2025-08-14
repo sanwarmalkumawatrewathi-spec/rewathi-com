@@ -1,4 +1,5 @@
 "use client";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import dynamic from "next/dynamic";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -25,7 +26,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main style={{ padding: "20px" }}>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

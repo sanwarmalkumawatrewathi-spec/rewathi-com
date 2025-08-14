@@ -1,0 +1,44 @@
+.Hero-section .Hero-info h1 {
+color: #ffffff;
+font-family: Kufam;
+font-weight: 500;
+font-style: Medium;
+font-size: 56px;
+line-height: 65px;
+letter-spacing: 0%;
+vertical-align: middle;
+}
+
+.Hero-section .Hero-subtitle {
+color: #ffffff;
+font-family: Kufam;
+font-weight: 700;
+font-style: Bold;
+font-size: 14px;
+line-height: 30px;
+letter-spacing: 30%;
+text-transform: uppercase;
+}
+
+.Hero-section .Hero-content {
+color: #ffffff;
+font-family: Kufam;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+line-height: 30px;
+letter-spacing: 0%;
+
+}
+
+.Hero-section .Hero-info a.main-btn  {
+background-color: #FFA600;
+font-family: Lexend;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 14px;
+line-height: 22px;
+letter-spacing: 10%;
+text-transform: uppercase;
+
+}
