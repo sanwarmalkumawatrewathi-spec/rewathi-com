@@ -36,11 +36,11 @@ const [time, setTime] = useState(null);
       <div className="container">
         <div>
       <h1>Homepage ACF Datafgdgdfg</h1>
-      {homeData.acf?.section_1?.title ? (
-        <p>{homeData.acf.section_1.title}</p>
-      ) : (
-        <p>No ACF data found</p>
-      )}
+     {homeData?.acf?.section_1?.title ? (
+  <p>{homeData.acf.section_1.title}</p>
+) : (
+  <p>No ACF data found</p>
+)}
     </div>
         <div className="row align-items-center">
           {/* Left Content */}
