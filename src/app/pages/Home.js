@@ -1,6 +1,27 @@
 import "../assets/css/Home.css"; // import CSS
+import { useEffect, useState } from "react";
 
-export default function HeroSection() {
+export default function Home({ homeData }) {
+  const [isClient, setIsClient] = useState(false);
+
+const [time, setTime] = useState(null);
+
+  useEffect(() => {
+    setTime(Date.now());
+  }, []);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Or skeleton loader
+  }
+
+  if (!homeData) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <section
       className="py-5 Hero-section d-flex align-items-center"
@@ -13,6 +34,14 @@ export default function HeroSection() {
       }}
     >
       <div className="container">
+        <div>
+      <h1>Homepage ACF Datafgdgdfg</h1>
+      {homeData.acf?.section_1?.title ? (
+        <p>{homeData.acf.section_1.title}</p>
+      ) : (
+        <p>No ACF data found</p>
+      )}
+    </div>
         <div className="row align-items-center">
           {/* Left Content */}
           <div className="col-lg-6 Hero-info">
@@ -50,6 +79,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
-

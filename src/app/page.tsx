@@ -11,6 +11,7 @@ import Company from "./pages/Company";
 import Stories from "./pages/Stories";
 import Solutions from "./pages/Solutions";
 import Home from "./pages/Home";
+import { useEffect, useState } from "react";
 
 
 
@@ -23,12 +24,27 @@ const BrowserRouter = dynamic(
 import { Routes, Route } from "react-router-dom";
 
 export default function App() {
+
+  const [homeData, setHomeData] = useState<any>(null);
+
+useEffect(() => {
+    async function fetchHomeData() {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/acf/v3/pages/${process.env.NEXT_PUBLIC_HOMEPAGE_ID}`
+      );
+      const data = await res.json();
+      setHomeData(data);
+    }
+    fetchHomeData();
+  }, []);
+
   return (
     <BrowserRouter>
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+
+          <Route path="/" element={<Home homeData={homeData} />} />
           <Route path="/about" element={<About />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/about/careers" element={<Careers />} />
