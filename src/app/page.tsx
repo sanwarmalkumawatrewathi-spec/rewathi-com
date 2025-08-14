@@ -9,6 +9,7 @@ import Team from "./pages/Team";
 import Company from "./pages/Company";
 import Stories from "./pages/Stories";
 import Solutions from "./pages/Solutions";
+import Home from "./pages/Home";
 
 
 
@@ -20,12 +21,13 @@ const BrowserRouter = dynamic(
 
 import { Routes, Route } from "react-router-dom";
 
-export default function Home() {
+export default function App() {
   return (
     <BrowserRouter>
       <Header />
       <main style={{ padding: "20px" }}>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/about/careers" element={<Careers />} />
