@@ -18,9 +18,9 @@ const [time, setTime] = useState(null);
     return null; // Or skeleton loader
   }
 
-  if (!homeData) {
-    return <p>Loading...</p>;
-  }
+  // if (!homeData) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <section
