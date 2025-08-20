@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lexend, Kufam } from "next/font/google"; // ✅ import Kufam
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lexend = Lexend({
+  variable: "--font-lexend",   // ✅ added variable for Lexend
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], 
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const kufam = Kufam({
+  variable: "--font-kufam",   // ✅ added variable for Kufam
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], 
 });
 
 export const metadata: Metadata = {
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${lexend.variable} ${kufam.variable} antialiased`}
       >
         {children}
       </body>

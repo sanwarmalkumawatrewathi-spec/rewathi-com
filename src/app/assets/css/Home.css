@@ -32,13 +32,150 @@ letter-spacing: 0%;
 }
 
 .Hero-section .Hero-info a.main-btn  {
+width: auto;
 background-color: #FFA600;
-font-family: Lexend;
+border-radius: 0;
+color: #ffffff;
+font-family: var(--font-lexend), sans-serif;
 font-weight: 600;
-font-style: SemiBold;
 font-size: 14px;
 line-height: 22px;
-letter-spacing: 10%;
+letter-spacing: 3px;
+text-transform: uppercase;
+padding: 20px 45px;
+
+}
+
+.Hero-section .Hero-info a.outline-btn {
+font-family: var(--font-lexend), sans-serif;
+padding: 20px 45px;
+border: 1px #FFA6001A solid;
+color: #F9A14B;
+font-weight: 600;
+font-size: 14px;
+line-height: 22px;
+letter-spacing: 2px;
+text-transform: uppercase;
+text-decoration: none;
+background: #22333a;
+
+}
+
+.about-section .subtitle {
+color: #FFA600;
+font-family: kufam;
+font-weight: 700;
+font-size: 14px;
+line-height: 30px;
+letter-spacing: 4px;
+text-align: center;
 text-transform: uppercase;
 
+}
+
+.about-section .desc {
+font-family: Kufam;
+color: #545454;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
+letter-spacing: 0%;
+text-align: center;
+}
+
+/* service section */
+.service-section  p.service-desc {
+    font-family: Kufam;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.service-section .subtitle {
+color: #FFA600;
+font-family: kufam;
+font-weight: 700;
+font-size: 14px;
+line-height: 30px;
+letter-spacing: 4px;
+text-align: center;
+text-transform: uppercase;
+}
+
+.service-section .cards h5.card-title {
+    font-family: Kufam;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.service-section .cards p.card-desc {
+    font-family: Kufam;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #DCDCDC;
+}
+
+.service-section .main-btn {
+    width: auto;
+    font-family: var(--font-lexend), sans-serif;
+    text-transform: uppercase;
+    background-color: #ffa600;
+    border-radius: 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.service-section .card-img, .card-img-top {
+    border-radius: 0px;
+}
+
+.service-section .service-card-1 {
+    height: 545px;
+}
+
+/* platform */
+
+.platforms-section .subtitle {
+  color: #FFA600;
+  font-family: kufam;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.platforms-section .platform-img {
+    height: 288px;
+    width: 100%;
+}
+
+.platforms-section .pf-desc {
+    font-family: Kufam;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.platforms-section .logo-img {
+  width: 130px;       
+  height: 40px;   
+  object-fit: contain;
+  display: block;
+}
+
+.platforms-section .pf-logos {
+    padding-bottom: 40px;
 }
