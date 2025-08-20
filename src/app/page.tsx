@@ -13,6 +13,7 @@ import Solutions from "./pages/Solutions";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
 
+import "./assets/css/Home.css"; // import CSS
 
 
 // Only BrowserRouter should be dynamic

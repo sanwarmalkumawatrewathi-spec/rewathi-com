@@ -24,7 +24,7 @@ export default function Home({ homeData }) {
       <section
         className="py-5 Hero-section d-flex align-items-center"
         style={{
-          backgroundImage: "url('/assets/images/hero.png')",
+          backgroundImage: `url(${homeData?.acf?.banner_image?.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -32,27 +32,17 @@ export default function Home({ homeData }) {
         }}
       >
         <div className="container">
-          <div>
-            <h1>Homepage ACF Datafgdgdfg</h1>
-            {homeData?.acf?.section_1?.title ? (
-              <p>{homeData.acf.section_1.title}</p>
-            ) : (
-              <p>No ACF data found</p>
-            )}
-          </div>
           <div className="row align-items-center">
             {/* Left Content */}
             <div className="col-lg-6 Hero-info">
               <p className="Hero-subtitle text-uppercase small fw-bold mb-2">
-                Digital Innovation Company
+                {homeData?.acf?.sub_title}
               </p>
               <h1 className="display-5 mb-4">
-                Digital Marketing Solution <br /> For Your Business
+                 {homeData?.acf?.title}
               </h1>
               <p className="Hero-content mb-4">
-                Crafting cutting-edge digital solutions that help your brand thrive in the
-                ever-evolving online landscape. From creative design to strategic marketing,
-                we combine expertise and technology to deliver impactful results.
+                {homeData?.acf?.description}
               </p>
               <div className="d-flex gap-3">
                 <a href="#services" className="main-btn btn">
@@ -78,11 +68,8 @@ export default function Home({ homeData }) {
       <section className="py-5 bg-light about-section" id="about">
         <div className="container text-center">
           <span className="subtitle">WHO WE ARE</span>
-          <h2 className="mt-2">Big Enough To Deliver, Small Enough To Care</h2>
-          <p className="desc">
-            Rewathi Digital Agency exceeded our expectations in every way. They took the time to understand our vision and delivered <br></br>
-            innovative solutions that helped us stand out in a competitive market. Their support throughout the process was invaluable.<br></br>
-            We're thrilled with the results and look forward to our continued partnership!
+          <h2 className="mt-2">{homeData?.acf?.title_1}</h2>
+          <p className="desc">{homeData?.acf?.description_1}
           </p>
         </div>
       </section>
@@ -94,83 +81,34 @@ export default function Home({ homeData }) {
           <div className="text-center mb-5">
             <span className="subtitle">OUR OFFERINGS</span>
             <h2 className="service-title">
-              Digital Transformation, ECommerce & Product Engineering
+              {homeData?.acf?.title_2}
             </h2>
             <p className="service-desc">
-              Rewathi Digital Agency exceeded our expectations in every way. They took the time to understand our vision and delivered <br /> 
-              innovative solutions that helped us stand out in a competitive market. Their support throughout the process was invaluable. <br /> 
-              We're thrilled with the results and look forward to our continued partnership!
+              {homeData?.acf?.description_2}
             </p>
           </div>
 
           {/* 3 Service Cards */}
-          <div className="row g-4 cards">
-            {/* Card 1 */}
-            <div className="col-md-4 service-card-1">
-              <div className="card border-0 shadow-sm h-100 overflow-hidden">
-                <img
-                  src="/assets/images/digital-commerce.jpg"
-                  className="card-img-top"
-                  alt="Digital Commerce"
-                />
-                <div className="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-75 align-items-center text-white p-4">
-                  <h5 className="fw-bold card-title">DIGITAL COMMERCE</h5>
-                  <p className="card-desc">
-                    Grow your business with our multi- <br />
-                    award-winning eCommerce solutions, <br />
-                    designed for exceptional growth.
-                  </p>
-                  <a href="#" className="btn main-btn text-white mt-2">
-                    READ MORE <i className="fa-solid fa-arrow-right ms-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="col-md-4 service-card-1">
-              <div className="card border-0 shadow-sm h-100  overflow-hidden">
-                <img
-                  src="/assets/images/web-development.jpg"
-                  className="card-img-top"
-                  alt="Web Development"
-                />
-                <div className="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-75 align-items-center text-white p-4">
-                  <h5 className="fw-bold card-title">WEB DEVELOPMENT</h5>
-                  <p className="card-desc">
-                    Grow your business with our multi- <br />
-                    award-winning eCommerce solutions, <br />
-                    designed for exceptional growth.
-                  </p>
-                  <a href="#" className="btn main-btn text-white mt-2">
-                    READ MORE <i className="fa-solid fa-arrow-right ms-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="col-md-4 service-card-1">
-              <div className="card border-0 shadow-sm h-100 overflow-hidden">
-                <img
-                  src="/assets/images/digital-transformation.jpg"
-                  className="card-img-top"
-                  alt="Digital Transformation"
-                />
-                <div className="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-75 align-items-center text-white p-4">
-                  <h5 className="fw-bold card-title">DIGITAL TRANSFORMATION</h5>
-                  <p className="card-desc">
-                    Grow your business with our multi- <br />
-                    award-winning eCommerce solutions, <br />
-                    designed for exceptional growth.
-                  </p>
-                  <a href="#" className="btn main-btn text-white mt-2">
-                    READ MORE <i className="fa-solid fa-arrow-right ms-2"></i>
-                  </a>
-                </div>
+          <div className="row cards">
+          {homeData?.acf?.services_home?.map((service, index) => (
+          <div className="col-md-4 service-card" key={index}>
+            <div className="card border-0 shadow-sm h-100 overflow-hidden">
+              <img
+                src={service?.image?.url}
+                className="card-img-top"
+                alt={service?.image?.alt || service?.name}
+              />
+              <div className="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-75 align-items-center text-white p-4">
+                <h5 className="fw-bold card-title">{service?.name}</h5>
+                <p className="card-desc">{service?.description}</p>
+                <a href="#" className="btn main-btn text-white mt-2">
+                  READ MORE <i className="fa-solid fa-arrow-right ms-2"></i>
+                </a>
               </div>
             </div>
           </div>
+        ))}
+        </div>
         </div>
       </section>
       
@@ -181,65 +119,50 @@ export default function Home({ homeData }) {
         <div className="text-center mb-5">
           <p className="subtitle fw-bold small">PLATFORM WE SERVE</p>
           <h2 className="title">
-            Industry Leading Digital Platforms
+            Industry Leading Digital Platforms {homeData?.acf?.platform_title}
           </h2>
           <p className="text-white-emphasis pf-desc mx-auto" style={{ maxWidth: "900px" }}>
-            Rewathi Digital Agency exceeded our expectations in every way. 
-            They took the time to understand our vision and delivered 
-            innovative solutions that helped us stand out in a competitive market. 
-            Their support throughout the process was invaluable. 
-            We’re thrilled with the results and look forward to our continued partnership!
+            {homeData?.acf?.platform_description}
           </p>
         </div>
 
-        {/* Content Row */}
+        
         <div className="row align-items-start g-4">
-          {/* Left Logos & Text */}
-          <div className="col-lg-4">
-            <div className="mb-5 pf-logos">
-              <img src="/assets/images/adobe-magento.png" alt="Adobe" className="my-3 logo-img" />
-              <p>Provides immediate insights for timely medical interventions by analyzing patient data continuously.</p>
-            </div>
-            <div className="mb-5 pf-logos">
-              <img src="/assets/images/salesforce-new.png" alt="Salesforce" width="auto" className="my-3 logo-img" />
-              <p>Creates customized care plans using AI to ensure the most effective treatment for each patient.</p>
-            </div>
-            <div className="mb-5 pf-logos">
-              <img src="/assets/images/outsystem.png" alt="Outsystems" className="my-3 logo-img" />
-              <p>Enhances image interpretation accuracy and streamlines diagnostics with AI-powered tools.</p>
-            </div>
-          </div>
-
-          {/* Middle Images */}
-          <div className="col-lg-4 text-center">
-            <img
-              src="/assets/images/platform-1.png"
-              alt="Platform Example 1"
-              className="img-fluid rounded mb-4 platform-img"
-            />
-            <img
-              src="/assets/images/platform-2.jpg"
-              alt="Platform Example 2"
-              className="img-fluid rounded platform-img"
-            />
-          </div>
-
-          {/* Right Logos & Text */}
-          <div className="col-lg-4">
-            <div className="mb-5 pf-logos">
-              <img src="/assets/images/microsoft.png" alt="Microsoft" className="my-3 logo-img" />
-              <p>Monitors health metrics to predict issues early, enabling preventive care measures.</p>
-            </div>
-            <div className="mb-5 pf-logos">
-              <img src="/assets/images/commercetools.png" alt="Commercetools" className="my-3 logo-img" />
-              <p>Facilitates seamless communication between patients and providers for better care.</p>
-            </div>
-            <div className="mb-5 pf-logos">
-              <img src="/assets/images/shopify.png" alt="Shopify Plus" className="my-3 logo-img" />
-              <p>Enables healthcare providers to track patient health remotely, reducing the need for in-person visits.</p>
-            </div>
-          </div>
-        </div>
+  {/* Left Logos & Text */}
+  <div className="col-lg-4">
+  {homeData?.acf?.platforms?.slice(0, 3).map((platform, index) => (
+    <div className="mb-5 pf-logos" key={index}>
+      {platform?.logo && (
+        <img
+          src={platform?.logo?.url}
+          alt={platform?.logo?.alt || `Platform ${index + 1}`}
+          className="my-3 logo-img"
+        />
+      )}
+      <p>{platform?.description}</p>
+    </div>
+  ))}
+</div>
+<div className="col-lg-4 text-center">
+   <img src={homeData?.acf?.platform_middle_image_1?.url} alt="Platform Example 1" className="img-fluid rounded mb-4 platform-img" /> 
+   <img src={homeData?.acf?.platform_middle_image_2?.url} alt="Platform Example 2" className="img-fluid rounded platform-img" /> 
+   </div>
+{/* Right Logos & Text */}
+<div className="col-lg-4">
+  {homeData?.acf?.platforms?.slice(3, 6).map((platform, index) => (
+    <div className="mb-5 pf-logos" key={index}>
+      {platform?.logo && (
+        <img
+          src={platform?.logo?.url}
+          alt={platform?.logo?.alt || `Platform ${index + 4}`}
+          className="my-3 logo-img"
+        />
+      )}
+      <p>{platform?.description}</p>
+    </div>
+  ))}
+</div>
+</div>
       </div>
     </section>
 

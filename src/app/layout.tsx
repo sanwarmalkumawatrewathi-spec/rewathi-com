@@ -26,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${lexend.variable} ${kufam.variable} antialiased`}
-      >
+      <body className={`${lexend.variable} ${kufam.variable} antialiased`}>
         {children}
       </body>
     </html>
