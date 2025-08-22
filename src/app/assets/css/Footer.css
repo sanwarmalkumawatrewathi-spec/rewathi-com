@@ -1,0 +1,63 @@
+.footer-section .top-cta {
+    background-color: #FFA600;
+}
+
+.footer-section .cta-title {
+font-family: Kufam;
+font-weight: 500;
+font-style: Medium;
+font-size: 28px;
+line-height: 120%;
+color: #000000;
+}
+
+.footer-section .cta-desc {
+font-family: Kufam;
+font-weight: 400;
+font-size: 14px;
+line-height: 140%;
+}
+
+.footer-section .cta-btn {
+font-family: Kufam;
+font-weight: 500;
+font-size: 20px;
+line-height: 140%;
+transition: all 0.3s ease;
+}
+
+.footer-section .cta-btn:hover {
+  letter-spacing: 2px; /* spread out letters */
+}
+
+.footer-section .f-title {
+font-family: Kufam;
+font-weight: 400;
+line-height: 140%;
+}
+
+.footer-section li a {
+font-family: Kufam;
+font-weight: 200;
+font-size: 14px;
+text-decoration: none;
+}
+
+.footer-section li a:hover {
+   color: #FFA600 !important; 
+}
+
+.footer-section .f-items li a:hover {
+color: #FFA600 !important;
+}
+
+.footer-section .f-bottom-bar a i:hover {
+color: #FFA600;
+}
+.footer-section .bottom-copyright-text {
+font-family: Kufam;
+font-weight: 500;
+font-size: 13px;
+vertical-align: bottom;
+
+}

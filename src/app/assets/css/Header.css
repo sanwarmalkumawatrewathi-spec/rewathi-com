@@ -1,23 +1,27 @@
 .header {
-  background: #0c1424; /* Dark background */
-  padding: 10px 40px;
+  width: 100%;
+  background: #0c1424;
+  /* padding: 10px 40px; */
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.header-container {
+.header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0;
 }
 
 .logo img {
-  height: 40px;
+  width: auto;
+  height: 55px;
 }
 
 .nav-menu {
   display: flex;
+  align-items: center;
   gap: 25px;
 }
 
@@ -31,7 +35,7 @@
 }
 
 .nav-link:hover {
-  color: #ffa500; /* Highlight color like screenshot */
+  color: #ffa500; 
 }
 
 .nav-link.active {
@@ -46,10 +50,16 @@
   display: none;
   position: absolute;
   background: #1c1c1c;
-  min-width: 160px;
-  top: 100%;
+  min-width: 180px;
+  top: 35px;
   left: 0;
   z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
 }
 
 .dropdown-content a {
@@ -61,11 +71,9 @@
 
 .dropdown-content a:hover {
   background: #333;
+  color: #3c4b93;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
 /* Contact button */
 .contact-btn a {
@@ -82,4 +90,57 @@
   background: #ffa500;
   border-color: #ffa500;
   color: #000;
+}
+
+
+/* ---------------- RESPONSIVE FIX ---------------- */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .nav-menu {
+    gap: 10px;
+  }
+
+  .contact-btn a {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .nav-menu {
+    display: none; /* hide menu by default */
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .contact-btn {
+    display: none; /* optional hide button in mobile */
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+  }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
 }

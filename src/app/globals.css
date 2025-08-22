@@ -24,10 +24,66 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   font-family: var(--font-lexend), sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
 
 h1, h2 {
   font-family: var(--font-kufam), cursive;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px; 
+  height: 10px; 
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #ffa600; 
+  border-radius: 10px;
+  border: 2px solid #f1f1f1; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #e69500; 
+}
+
+
+.subtitle {
+    color: #ffa600;
+    letter-spacing: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: kufam;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.title {
+font-family: Kufam;
+font-weight: 500;
+font-size: 30px;
+line-height: 64px;
+letter-spacing: 2px;
+text-align: center;
+text-transform: capitalize;
+}
+
+.desc {
+font-family: Kufam;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
+text-align: center;
+
+}
