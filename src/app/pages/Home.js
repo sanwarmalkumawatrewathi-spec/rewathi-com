@@ -76,7 +76,7 @@ export default function Home({ homeData }) {
       </section>
 
       {/* Services Section */}
-      <section className="service-section py-5 bg-light" id="services">
+      <section className="service-section py-5" id="services">
         <div className="container">
           {/* Section Heading */}
           <div className="text-center mb-5"data-aos="fade-up" data-aos-delay="100" >
@@ -92,7 +92,7 @@ export default function Home({ homeData }) {
           {/* Service Cards */}
           <div className="row cards" data-aos="fade-up">
             {homeData?.acf?.services_home?.map((service, index) => (
-              <div className="col-md-4 service-card" key={index}>
+              <div className="col-md-4 service-card my-4" key={index}>
                 <div className="card border-0 shadow-sm h-100 overflow-hidden">
                   <img
                     src={service?.image?.url}
@@ -132,7 +132,7 @@ export default function Home({ homeData }) {
             {/* Left Logos & Text */}
             <div className="col-lg-4">
               {homeData?.acf?.platforms?.slice(0, 3).map((platform, index) => (
-                <div className="mb-5 pf-logos" data-aos="fade-up" key={index}>
+                <div className="mb-md-5 pf-logos d-flex flex-column align-items-center align-items-md-start" data-aos="fade-up" key={index}>
                   {platform?.logo && (
                     <img
                       src={platform?.logo?.url}
@@ -140,7 +140,7 @@ export default function Home({ homeData }) {
                       className="my-3 logo-img"
                     />
                   )}
-                  <p>{platform?.description}</p>
+                  <p className="text-center text-md-start">{platform?.description}</p>
                 </div>
               ))}
             </div>
@@ -151,7 +151,7 @@ export default function Home({ homeData }) {
             {/* Right Logos & Text */}
             <div className="col-lg-4">
               {homeData?.acf?.platforms?.slice(3, 6).map((platform, index) => (
-                <div className="mb-5 pf-logos" data-aos="fade-up" key={index}>
+                <div className="mb-md-5 pf-logos d-flex flex-column align-items-center align-items-md-start" data-aos="fade-up" key={index}>
                   {platform?.logo && (
                     <img
                       src={platform?.logo?.url}
@@ -159,7 +159,7 @@ export default function Home({ homeData }) {
                       className="my-3 logo-img"
                     />
                   )}
-                  <p>{platform?.description}</p>
+                  <p className="text-center text-md-start">{platform?.description}</p>
                 </div>
               ))}
             </div>
@@ -169,7 +169,7 @@ export default function Home({ homeData }) {
 
       {/* Industries Section */}
       <section className="industries-section py-5">
-        <div className="container text-center mb-5 mt-5" data-aos="fade-up">
+        <div className="container text-center mt-5" data-aos="fade-up">
           <h6 className="subtitle">KEY INDUSTRIES</h6>
           <h2 className="title mb-3">
             Industries we serve
@@ -184,7 +184,7 @@ export default function Home({ homeData }) {
         <div className="container-fluid px-0">
           <div className="row g-0 cols-2 row-cols-md-3 row-cols-lg-5">
             {/* Retail & Consumer Goods */}
-            <div className="col-md-2 industry-card">
+            <div className="col-md-2 industry-card my-5">
               <div className="industry-overlay ">
                 <h5>Retail & Consumer Goods</h5>
                 <p>
@@ -201,7 +201,7 @@ export default function Home({ homeData }) {
             </div>
 
             {/* Financial Services */}
-            <div className="col-md-2 industry-card">
+            <div className="col-md-2 industry-card my-5">
               <div className="industry-overlay">
                 <h5>Financial Services</h5>
                 <p>
@@ -218,7 +218,7 @@ export default function Home({ homeData }) {
             </div>
 
             {/* Manufacturing */}
-            <div className="col-md-2 industry-card">
+            <div className="col-md-2 industry-card my-5">
               <div className="industry-overlay">
                 <h5>Manufacturing</h5>
                 <p>
@@ -235,7 +235,7 @@ export default function Home({ homeData }) {
             </div>
 
             {/* Healthcare */}
-            <div className="col-md-2 industry-card">
+            <div className="col-md-2 industry-card my-5">
               <div className="industry-overlay">
                 <h5>Healthcare</h5>
                 <p>
@@ -252,7 +252,7 @@ export default function Home({ homeData }) {
             </div>
 
             {/* Fashion & Apparel */}
-            <div className="col-md-2 industry-card">
+            <div className="col-md-2 industry-card my-5">
               <div className="industry-overlay">
                 <h5>Fashion & Apparel</h5>
                 <p>

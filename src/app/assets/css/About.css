@@ -1,0 +1,58 @@
+.about-section .main-btn {
+  width: auto;
+  background-color: #FFA600;
+  border-radius: 0;
+  color: #ffffff;
+  font-family: var(--font-lexend), sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase;
+  padding: 20px 45px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+}
+
+.about-section .main-btn:hover {
+      letter-spacing: 3px;
+}
+
+/* stats section */
+.stats-section .main-btn {
+width: auto;
+  background-color: #FFA600;
+  border-radius: 0;
+  color: #ffffff;
+  font-family: var(--font-lexend), sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase;
+  padding: 10px 35px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.stats-section .main-btn:hover {
+      letter-spacing: 3px;
+}
+
+.stats-section .stats-counter {
+  background-color: #FFA600;  
+  padding: 80px;;
+}
+
+.stats-section .stats-counter .stats-number {
+font-family: Kufam;
+font-weight: 700;
+font-size: 40px;
+line-height: 100%;
+}
+
+.stats-section .stats-counter .stats-label {
+font-family: Kufam;
+font-weight: 600;
+font-size: 15px;
+line-height: 100%;
+}

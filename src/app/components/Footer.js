@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="col-md-4 text-md-end mt-3 mt-md-0">
-            <a href="#" className="btn cta-btn px-4">
+            <a href="#" className="btn cta-btn">
               Get consultation →
             </a>
           </div>

@@ -91,6 +91,10 @@
 }
 
 /* service section */
+
+.service-section {
+  background-color: #f1f1f194;
+}
 .service-section p.service-desc {
   font-family: Kufam;
   font-weight: 500;

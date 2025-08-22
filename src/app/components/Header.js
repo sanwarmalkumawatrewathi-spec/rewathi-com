@@ -20,13 +20,13 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className={`nav-menu ${menuOpen ? "show" : ""}`}>
-          <Link to="/" className="nav-link active">Home</Link>
+          <Link to="/" className="nav-link ">Home</Link>
           <Link to="/platforms" className="nav-link">Platforms</Link>
           <Link to="/solutions" className="nav-link">Solutions</Link>
           <Link to="/industries" className="nav-link">Industries</Link>
           <Link to="/success-stories" className="nav-link">Success Stories</Link>
           <div className="dropdown">
-            <Link to="/about" className="nav-link">About Us ▾</Link>
+            <Link to="/about" className="nav-link active">About Us ▾</Link>
             <div className="dropdown-content">
               <Link to="/about/company">Company</Link>
               <Link to="/about/team">Team</Link>
