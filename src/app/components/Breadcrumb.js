@@ -1,26 +1,56 @@
-"use client";
-import React from "react";
+import Image from "next/image";
 
 const Breadcrumb = ({ title, subtitle, bgImage }) => {
   return (
     <section
-      className="relative w-full h-[280px] md:h-[320px] flex items-center justify-start text-center text-white"
+      className="breadcrumb-section"
       style={{
-        backgroundImage: `url(${bgImage || "/images/breadcrumb-bg.jpg"})`,
+        backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        position: "relative",
+        minHeight: "338px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "start",
+        color: "#fff",
       }}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/70"></div>
-
-      {/* Content */}
-      <div className="relative z-10">
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <p className="mt-2 text-lg">{subtitle}</p>
+      <div
+        className="breadcrumb-overlay"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.7)", // Dark overlay to enhance text readability
+        }}
+      ></div>
+      <div className="breadcrumb-content text-center text-md-start" style={{ position: "relative", zIndex: 1 }}>
+        <h1
+          style={{
+            fontSize: "3rem",
+            fontWeight: "bold",
+            marginBottom: "10px",
+            textTransform: "uppercase",
+            letterSpacing: "2px",
+          }}
+        >
+          {title}
+        </h1>
+        <p
+          style={{
+            fontSize: "1.2rem",
+            color: "#ccc",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          {subtitle}
+        </p>
       </div>
     </section>
-    
   );
 };
 

@@ -102,6 +102,19 @@ h2 {
   transition: all 0.3s ease;
 }
 
+.breadcrumb-content  {
+ padding-left: 10rem;
+ padding-right: 10rem;
+}
+
+@media (max-width:768px ) {
+  .breadcrumb-content  {
+ padding-left:0;
+ padding-right: 0;
+  }
+}
+
+
 main-btn:hover {
   letter-spacing: 3px;
 }

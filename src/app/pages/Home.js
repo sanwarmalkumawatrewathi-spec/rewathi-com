@@ -1,69 +1,97 @@
 import "../assets/css/Home.css"; // import CSS
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { useEffect, useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home({ homeData }) {
   const [isClient, setIsClient] = useState(false);
-  const [time, setTime] = useState(null);
 
-  useEffect(() => {
-    setTime(Date.now());
-  }, []);
+  // Ref for slider
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+
+    // Slider pause-on-hover logic
+    const initializeSlider = () => {
+      if (sliderRef.current) {
+        let animationPlaying = true;
+
+        const pauseOnHover = () => {
+          animationPlaying = false;
+          sliderRef.current.style.animationPlayState = "paused";
+          console.log("Paused on hover"); // Debug log
+        };
+
+        const resumeOnHover = () => {
+          animationPlaying = true;
+          sliderRef.current.style.animationPlayState = "running";
+          console.log("Resumed on hover"); // Debug log
+        };
+
+        sliderRef.current.addEventListener("mouseenter", pauseOnHover);
+        sliderRef.current.addEventListener("mouseleave", resumeOnHover);
+
+        // Cleanup
+        return () => {
+          if (sliderRef.current) {
+            sliderRef.current.removeEventListener("mouseenter", pauseOnHover);
+            sliderRef.current.removeEventListener("mouseleave", resumeOnHover);
+          }
+        };
+      }
+    };
+
+    initializeSlider();
+  }, []); // Empty dependency array ensures this runs once on mount
 
   if (!isClient) {
-    return null; // Or skeleton loader
+    return null; // Render nothing during SSR
   }
 
   return (
     <>
-    
       {/* Hero Section */}
-<section
-  className="py-5 Hero-section d-flex align-items-center position-relative"
-  style={{
-    backgroundImage: `url(${homeData?.acf?.banner_image?.url})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    height: "700px",
-  }}
->
-  {/* Smoky Overlay */}
-  <div className="smoke-overlay"></div>
+      <section
+        className="py-5 Hero-section d-flex align-items-center position-relative"
+        style={{
+          backgroundImage: `url(${homeData?.acf?.banner_image?.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "700px",
+        }}
+      >
+        {/* Smoky Overlay */}
+        <div className="smoke-overlay"></div>
 
-  <div className="container position-relative">
-    <div className="row align-items-center">
-      {/* Left Content */}
-      <div className="col-lg-6 Hero-info">
-        <p className="Hero-subtitle text-uppercase small fw-bold mb-2">
-          {homeData?.acf?.sub_title}
-        </p>
-        <h1 className="display-5 mb-4">{homeData?.acf?.title}</h1>
-        <p className="Hero-content mb-4">{homeData?.acf?.description}</p>
-        <div className="d-flex flex-column flex-md-row gap-3">
-          <a href="#services" className="main-btn btn">
-            Our Service
-            <i className="fa-solid fa-chevron-right ms-2"></i>
-          </a>
-          <a href="#how-it-works" className="outline-btn">
-            How It Works
-            <i className="fa-solid fa-chevron-right ms-2"></i>
-          </a>
+        <div className="container position-relative">
+          <div className="row align-items-center">
+            {/* Left Content */}
+            <div className="col-lg-6 Hero-info">
+              <p className="Hero-subtitle text-uppercase small fw-bold mb-2">
+                {homeData?.acf?.sub_title}
+              </p>
+              <h1 className="display-5 mb-4">{homeData?.acf?.title}</h1>
+              <p className="Hero-content mb-4">{homeData?.acf?.description}</p>
+              <div className="d-flex flex-column flex-md-row gap-3">
+                <a href="#services" className="main-btn btn">
+                  Our Service
+                  <i className="fa-solid fa-chevron-right ms-2"></i>
+                </a>
+                <a href="#how-it-works" className="outline-btn">
+                  How It Works
+                  <i className="fa-solid fa-chevron-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="col-lg-6 text-center mt-4 mt-lg-0">
+              {/* Right side content */}
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Right Image */}
-      <div className="col-lg-6 text-center mt-4 mt-lg-0">
-        {/* Right side content */}
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* About Section */}
       <section className="py-5 bg-light about-section" id="about">
@@ -79,7 +107,7 @@ export default function Home({ homeData }) {
       <section className="service-section py-5" id="services">
         <div className="container">
           {/* Section Heading */}
-          <div className="text-center mb-5"data-aos="fade-up" data-aos-delay="100" >
+          <div className="text-center mb-5" data-aos="fade-up" data-aos-delay="100" >
             <span className="subtitle">OUR OFFERINGS</span>
             <h2 className="service-title">
               {homeData?.acf?.title_2}
@@ -421,37 +449,25 @@ export default function Home({ homeData }) {
             </div>
           </div>
         </div>
-        <div className="container mt-5">
-          <div className="row">
-            <div className="col-md-2 logo-track">
-              <div className="logo-item">
-                <img src="/assets/images/lighthouse.png" alt="lighthouse" />
-              </div>
-            </div>
-            <div className="col-md-2 logo-track">
-              <div className="logo-item">
-                <img src="/assets/images/brocken.png" alt="brocken" />
-              </div>
-            </div>
-            <div className="col-md-2 logo-track">
-              <div className="logo-item">
-                <img src="/assets/images/astorry.png" alt="" />
-              </div>
-            </div>
-            <div className="col-md-2 logo-track">
-              <div className="logo-item">
-                <img src="/assets/images/media.png" alt="" />
-              </div>
-            </div>
-            <div className="col-md-2 logo-track">
-              <div className="logo-item">
-                <img src="/assets/images/mirolly.png" alt="" />
-              </div>
-            </div>
-            <div className="col-md-2 logo-track">
-              <div className="logo-item">
-                <img src="/assets/images/steel.png" alt="" />
-              </div>
+      </section>
+      {/* client log */}
+      <section className=" client-logo-section">
+        <div className="container">
+          <div className="logo-slider-container">
+            <div className="logo-slider" ref={sliderRef}>
+              <img src="/assets/images/lighthouse.png" alt="Lighthouse Logo" className="logo-item" />
+              <img src="/assets/images/brocken.png" alt="Brocken Production Logo" className="logo-item" />
+              <img src="/assets/images/astorry.png" alt="Astorry Logo" className="logo-item" />
+              <img src="/assets/images/media.png" alt="Dirro Media Logo" className="logo-item" />
+              <img src="/assets/images/mirolly.png" alt="Mirolly Group Logo" className="logo-item" />
+              <img src="/assets/images/steel.png" alt="Strong Steal Logo" className="logo-item" />
+              {/* Duplicate logos for infinite loop */}
+              <img src="/assets/images/lighthouse.png" alt="Lighthouse Logo" className="logo-item" />
+              <img src="/assets/images/brocken.png" alt="Brocken Production Logo" className="logo-item" />
+              <img src="/assets/images/astorry.png" alt="Astorry Logo" className="logo-item" />
+              <img src="/assets/images/media.png" alt="Dirro Media Logo" className="logo-item" />
+              <img src="/assets/images/mirolly.png" alt="Mirolly Group Logo" className="logo-item" />
+              <img src="/assets/images/steel.png" alt="Strong Steal Logo" className="logo-item" />
             </div>
           </div>
         </div>
